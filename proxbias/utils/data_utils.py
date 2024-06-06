@@ -10,8 +10,11 @@ def _get_data_path(name):
 
 
 def get_cancer_gene_lists(valid_genes: List[str]) -> Tuple[List[str], List[str]]:
-    # Assumes data file is present in data folder
-    oncokb = pd.read_csv(f"proxbias/data/{CANCER_GENES_FILENAME}", delimiter="\t")
+    # Get the correct path for the data file
+    cancer_genes_path = _get_data_path(CANCER_GENES_FILENAME)
+    
+    # Read the data file
+    oncokb = pd.read_csv(cancer_genes_path, delimiter="\t")
     oncokb = oncokb.loc[oncokb["Hugo Symbol"].isin(valid_genes)]
     tsg_genes = oncokb.loc[oncokb["Is Tumor Suppressor Gene"] == "Yes", "Hugo Symbol"].tolist()
     oncogenes = oncokb.loc[oncokb["Is Oncogene"] == "Yes", "Hugo Symbol"].tolist()

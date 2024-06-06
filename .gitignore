@@ -129,4 +129,4 @@ notebook_config.yaml
 startup-hook.sh
 
 # Depmap
-depmap/*
+proxbias/notebooks/depmap/*
