@@ -130,3 +130,9 @@ startup-hook.sh
 
 # Depmap
 proxbias/notebooks/depmap/*
+
+#word doc
+*.docx
+*.Rmd
+*.Rhistory
+*.RData
